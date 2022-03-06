@@ -1,11 +1,19 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import NavBar from '../components/NavBar'
-import { ChakraProvider } from '@chakra-ui/react'
+import SignUp from '../components/SignUp'
+import { ChakraProvider, useDisclosure } from '@chakra-ui/react'
+import { useEffect } from 'react'
 
 export default function Home() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   const showModal = (show) => {
+    if (show) onOpen()
+    else onClose()
   }
+
+  useEffect(() => console.log(isOpen), [isOpen])
 
   return (
     <ChakraProvider>
@@ -16,7 +24,8 @@ export default function Home() {
       </Head>
 
       <div id={styles.app}>
-        <NavBar />
+        <NavBar showModal={showModal} />
+        <SignUp isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
       </div>
     </ChakraProvider>
   )

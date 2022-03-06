@@ -1,6 +1,6 @@
 import { Heading, Box, Flex, Button } from '@chakra-ui/react'
 
-export default function NavBar() {
+export default function NavBar(props) {
     return (
         <Box w='100%' h='55px' bg='gray.700' color='white'>
             <Flex
@@ -14,8 +14,8 @@ export default function NavBar() {
                 <Heading as='h1'>eCards</Heading>
 
                 <Box>
-                    <Button mr="20px" color="gray.900">Cadastrar-se</Button>
-                    <Button color="gray.900">Fazer Login</Button>
+                    <Button onClick={() => props.showModal(true)} mr="20px" color="gray.900">Criar Conta</Button>
+                    <Button onClick={() => props.showModal(false)} color="gray.900">Fazer Login</Button>
                 </Box>
             </Flex>
         </Box>
