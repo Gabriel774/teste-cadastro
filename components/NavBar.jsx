@@ -11,11 +11,11 @@ export default function NavBar(props) {
                 justify="space-between"
                 align="center"
             >
-                <Heading as='h1'>eCards</Heading>
+                <Heading as='h1'>E-Cards</Heading>
 
                 <Box>
-                    <Button onClick={() => props.showModal(true)} mr="20px" color="gray.900">Criar Conta</Button>
-                    <Button onClick={() => props.showModal(false)} color="gray.900">Fazer Login</Button>
+                    <Button onClick={() => props.showModal('signUp')} mr="20px" color="gray.900">Criar Conta</Button>
+                    <Button onClick={() => props.showModal('login')} color="gray.900">Fazer Login</Button>
                 </Box>
             </Flex>
         </Box>

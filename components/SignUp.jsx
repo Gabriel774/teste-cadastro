@@ -25,7 +25,12 @@ export default function SignUp(props) {
                     <Flex direction='column' justify='center' align='center'>
                         <Box m='10px 0px'>
                             <Text color='whiteAlpha.600'>
-                                Já possui uma conta? <span className={styles.link}>Entrar Agora</span>
+                                Já possui uma conta? <span
+                                    className={styles.link}
+                                    onClick={() => props.showModal('login')}
+                                >
+                                    Entrar Agora
+                                </span>
                             </Text>
                         </Box>
 
@@ -40,7 +45,7 @@ export default function SignUp(props) {
                                     hover={btn.hover}
                                     active={btn.active}
                                     color={btn.color}
-                                    type={true}
+                                    form='signUp'
                                     width={btn.width}
                                     key={i}
                                 />
@@ -65,18 +70,25 @@ export default function SignUp(props) {
                                 />
                             })}
                         </Box>
+
                         <Box m='10px 0px' w='100%'>
-                            <Button w='100%'>
+                            <Button w='100%' borderRadius='0px'>
                                 <Text mr='5px' color='blackAlpha.800'>
-                                    Comece Agora
+                                    Começar Agora
                                 </Text>
                                 <Image width={20} height={20} src={loginIcon} />
                             </Button>
                         </Box>
                     </Flex>
                 </ModalBody>
-                <ModalFooter>
-
+                <ModalFooter textAlign='center'>
+                    <Box m='0px 25px' w='100%'>
+                        <Text color='gray.400' fontSize='smaller'>
+                            Ao clicar em "Comece Agora", você concorda com
+                            os <span className={styles.underLine}>Termos de uso</span> e
+                            a <span className={styles.underLine}>Politica de Privacidade</span> do E-Cards.
+                        </Text>
+                    </Box>
                 </ModalFooter>
             </ModalContent>
         </Modal>

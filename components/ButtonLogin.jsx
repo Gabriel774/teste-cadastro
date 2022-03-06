@@ -18,10 +18,9 @@ export default function Btn(props) {
                 src={props.src}
                 alt={props.alt}
             />
-            {props.type ?
-                (<Text ml='10px'>Cadastre-se com {props.name}</Text>) :
-                (<Text ml='10px'>Entrar com {props.name}</Text>)
-            }
+            {props.form === 'signUp' && (<Text ml='10px'>Cadastre-se com {props.name}</Text>)}
+            {props.form === 'login' && (<Text ml='10px'>Entrar com {props.name}</Text>)}
+
         </Button>
     )
 }
