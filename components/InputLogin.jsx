@@ -7,6 +7,7 @@ export default function Inp(props) {
     const [showPassword, setShowPassword] = useState(false)
     const type = showPassword ? 'password' : 'text'
     
+    if (props.type != 'email' && props.form === 'forgot') return false
     if (props.form === 'login' && props.type === 'text') return false
 
     return (

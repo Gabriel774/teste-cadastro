@@ -79,7 +79,12 @@ export default function SignUp(props) {
                 <ModalFooter textAlign='center'>
                     <Box m='0px 25px' w='100%'>
                         <Text>
-                            <span className={styles.link}>Esqueceu sua senha?</span>
+                            <span
+                                className={styles.link}
+                                onClick={() => props.showModal('forgot')}
+                            >
+                                Esqueceu sua senha?
+                            </span>
                         </Text>
                     </Box>
                 </ModalFooter>

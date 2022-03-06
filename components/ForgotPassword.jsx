@@ -11,7 +11,7 @@ export default function SignUp(props) {
         <Modal isOpen={props.isOpen} onClose={props.onClose}>
             <ModalOverlay />
             <ModalContent bg='gray.700' color='white'>
-                <ModalHeader>Fazer login</ModalHeader>
+                <ModalHeader>Esqueceu a senha?</ModalHeader>
                 <ModalCloseButton
                     bg='whiteAlpha.900'
                     color='gray.700'
@@ -23,41 +23,17 @@ export default function SignUp(props) {
                     <Flex direction='column' justify='center' align='center'>
                         <Box m='10px 0px'>
                             <Text color='whiteAlpha.600'>
-                                Não possui uma conta? <span
+                                Lembra da sua senha? <span
                                     className={styles.link}
-                                    onClick={() => props.showModal('signUp')}
-                                >Cadastre-se Agora</span>
-                            </Text>
-                        </Box>
-
-                        <Box m='10px 0px' w='100%'>
-                            {btnData.map((btn, i) => {
-                                return <ButtonAltLogin
-                                    src={btn.src}
-                                    name={btn.name}
-                                    text={btn.text}
-                                    alt={btn.alt}
-                                    bg={btn.bg}
-                                    hover={btn.hover}
-                                    active={btn.active}
-                                    color={btn.color}
-                                    form='login'
-                                    width={btn.width}
-                                    key={i}
-                                />
-                            })}
-                        </Box>
-
-                        <Box m='10px 0px' w='100%'>
-                            <Text className={styles.textWithLine}>
-                                Ou
+                                    onClick={() => props.showModal('login')}
+                                >Entrar Agora</span>
                             </Text>
                         </Box>
 
                         <Box m='10px 0px' w='100%'>
                             {inpData.map((inp, i) => {
                                 return <InputLogin
-                                    form='login'
+                                    form='forgot'
                                     type={inp.type}
                                     text={inp.text}
                                     icon={inp.icon}
@@ -67,22 +43,15 @@ export default function SignUp(props) {
                             })}
                         </Box>
 
-                        <Box m='10px 0px' w='100%'>
+                        <Box m='15px 0px' w='100%'>
                             <Button w='100%' borderRadius='0px'>
                                 <Text color='blackAlpha.800'>
-                                    Entrar
+                                    Redefinir Senha
                                 </Text>
                             </Button>
                         </Box>
                     </Flex>
                 </ModalBody>
-                <ModalFooter textAlign='center'>
-                    <Box m='0px 25px' w='100%'>
-                        <Text>
-                            <span className={styles.link}>Esqueceu sua senha?</span>
-                        </Text>
-                    </Box>
-                </ModalFooter>
             </ModalContent>
         </Modal>
     )

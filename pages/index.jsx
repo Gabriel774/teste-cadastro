@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import NavBar from '../components/NavBar'
 import SignUp from '../components/SignUp'
 import Login from '../components/Login'
-import ForgetPassword from '../components/ForgetPassword'
+import ForgotPassword from '../components/ForgotPassword'
 import { ChakraProvider, useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
 
@@ -28,7 +28,7 @@ export default function Home() {
         <NavBar showModal={showModal} />
         {Show === 'signUp' && <SignUp showModal={showModal} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />}
         {Show === 'login' && <Login showModal={showModal} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />}
-        {Show === 'forget' && <ForgetPassword showModal={showModal} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />}
+        {Show === 'forgot' && <ForgotPassword showModal={showModal} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />}
       </div>
     </ChakraProvider>
   )
