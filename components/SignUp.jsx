@@ -6,8 +6,32 @@ import inpData from './data/input'
 import styles from '../styles/signUp.module.css'
 import Image from 'next/image'
 import loginIcon from '../public/assets/img/login.png'
+import { useState } from 'react';
+import axios from 'axios'
 
 export default function SignUp(props) {
+    const [user, setUser] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleChange = (inp, inpValue) => {
+        switch (inp) {
+            case 'email': setEmail(inpValue)
+                break
+            case 'text': setUser(inpValue)
+                break
+            case 'password': setPassword(inpValue)
+        }
+    }
+
+    const submitData = async () => {
+        if (!email.includes("@")) return alert("E-mail inválido")
+        let data = { email, userName: user, password }
+
+        const response = await axios.post("https://projeto-cadastro774.herokuapp.com/auth/register", data)
+        if (response.status == '201') alert('Cadastrado com sucesso!')
+        else alert("Erro no cadastro")
+    }
 
     return (
         <Modal isOpen={props.isOpen} onClose={props.onClose}>
@@ -60,19 +84,34 @@ export default function SignUp(props) {
 
                         <Box m='10px 0px' w='100%'>
                             {inpData.map((inp, i) => {
+                                let value = null
+                                switch (inp.type) {
+                                    case 'email': value = email
+                                        break
+                                    case 'text': value = user
+                                        break
+                                    case 'password': value = password
+                                }
+
                                 return <InputLogin
                                     form='register'
                                     type={inp.type}
                                     text={inp.text}
                                     icon={inp.icon}
                                     label={inp.label}
-
+                                    key={i}
+                                    value={value}
+                                    setValue={inp.type}
+                                    handleChange={handleChange}
                                 />
                             })}
-                        </Box>
-
-                        <Box m='10px 0px' w='100%'>
-                            <Button w='100%' borderRadius='0px'>
+                            <Button
+                                w='100%'
+                                mt='15px'
+                                borderRadius='0px'
+                                onClick={() => submitData()}
+                                disabled={!user || !email || !password}
+                            >
                                 <Text mr='5px' color='blackAlpha.800'>
                                     Começar Agora
                                 </Text>

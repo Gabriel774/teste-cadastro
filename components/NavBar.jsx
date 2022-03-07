@@ -2,10 +2,10 @@ import { Heading, Box, Flex, Button } from '@chakra-ui/react'
 
 export default function NavBar(props) {
     return (
-        <Box w='100%' h='55px' bg='gray.700' color='white'>
+        <Box position='absolute' top='0' w='100%' h='55px' bg='gray.700' color='white'>
             <Flex
-                ml="25px"
-                mr="25px"
+                ml="5%"
+                mr="5%"
                 h="100%"
                 direction="row"
                 justify="space-between"
